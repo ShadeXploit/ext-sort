@@ -1,6 +1,6 @@
 # Recursive File Sorter
 
-A lightweight, robust Bash script designed to recursively scan a directory, extract files from nested subfolders, and organize them in-place by their file extensions. Perfect for cleaning up messy directories, recovered data drives, or large unorganized archives on Linux.
+A lightweight, Bash script designed to recursively scan a directory, extract files from nested subfolders, and organize them in-place by their file extensions. Perfect for cleaning up messy directories, recovered data drives, or large unorganized archives on Linux.
 
 ## Features
 
@@ -16,8 +16,8 @@ A lightweight, robust Bash script designed to recursively scan a directory, extr
 
 1. Clone the repository or download the `organize.sh` script:
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/your-username/ext-sort.git
+cd ext-sort
 
 ```
 

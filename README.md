@@ -1,160 +1,70 @@
-# ext-sort
+# Recursive File Sorter
 
-Organize recovered files — or any mixed folder of files — into a cleaner, easier-to-review structure.
-
-`ext-sort` is intended for situations where you have a large batch of unsorted files and want to quickly group them by file type. It is especially useful for recovered data, SD card dumps, drive restores, forensic exports, downloads folders, and other directories where files need to be separated into meaningful categories.
-
-## What this project is for
-
-When files are recovered from damaged storage or collected from multiple sources, they are often dumped into a single directory with little organization. A sorter like `ext-sort` helps by:
-
-- grouping files by extension or type
-- making large recovered sets easier to inspect
-- separating media, documents, archives, executables, and unknown files
-- reducing manual dragging, dropping, and renaming
-- helping you review what was actually recovered
-
-## Ideal use cases
-
-- file recovery projects
-- digital forensics lab prep
-- download folder cleanup
-- backup review
-- mixed media organization
-- sorting exported datasets
-
-## Expected workflow
-
-The general workflow for this project is:
-
-1. Point the script at a folder that contains unsorted files.
-2. Let it inspect filenames and extensions.
-3. Move or copy files into organized folders based on extension or category.
-4. Review the output and handle unknown or extensionless files manually if needed.
+A lightweight, robust Bash script designed to recursively scan a directory, extract files from nested subfolders, and organize them in-place by their file extensions. Perfect for cleaning up messy directories, recovered data drives, or large unorganized archives on Linux.
 
 ## Features
 
-A typical `ext-sort` setup is expected to support:
+* **Recursive Scanning:** Dives deep into all nested subfolders to find and pull out files.
+* **In-Place Organization:** Automatically creates lowercase, extension-based folders (e.g., `mp4`, `pdf`, `txt`) directly in the target directory.
+* **Progress Indicator:** Pre-scans the directory to display a live progress counter (`[ 12/150] Moved...`).
+* **Name Conflict Safe:** Automatically appends a unique timestamp suffix if two files from different subfolders share the exact same name.
+* **Special Character Handling:** Safely processes filenames containing spaces and special characters using null-delimited iteration.
 
-- sorting files by extension
-- handling large batches of mixed file types
-- organizing recovered files into predictable folders
-- improving readability of chaotic directories
-- giving you a cleaner starting point for manual review
+---
 
-If you continue developing the script, you may also want to support:
+## Installation
 
-- recursive scanning
-- dry-run mode
-- copy instead of move mode
-- duplicate handling
-- file type grouping beyond raw extensions
-- logging and summary reports
+1. Clone the repository or download the `organize.sh` script:
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 
-## Example organization layout
-
-Before:
-
-```text
-recovered/
-├── 0001.jpg
-├── 0002.mp4
-├── 0003.pdf
-├── 0004.zip
-├── 0005
-└── notes.txt
 ```
 
-After:
 
-```text
-sorted/
-├── jpg/
-│   └── 0001.jpg
-├── mp4/
-│   └── 0002.mp4
-├── pdf/
-│   └── 0003.pdf
-├── txt/
-│   └── notes.txt
-├── zip/
-│   └── 0004.zip
-└── unknown/
-    └── 0005
+2. Make the script executable:
+```bash
+chmod +x organize.sh
+
 ```
 
-## How to use it
 
-Because the repository currently documents the project concept rather than a checked-in entrypoint file, use the command examples below as a template and replace the command/options with your actual implementation.
 
-Basic pattern:
+---
+
+## Usage
+
+Run the script from your terminal, passing the target directory as an argument:
 
 ```bash
-<script-command> <source-folder> [output-folder]
+./organize.sh /path/to/target/directory
+
 ```
 
-Example:
+If no directory path is provided, the script defaults to organizing the **current working directory**:
 
 ```bash
-./organize.sh ./recovered ./sorted
+./organize.sh
+
 ```
 
-If your script sorts files in place, the usage may look more like:
+---
 
-```bash
-./organize.sh ./recovered
-```
+## How It Works
 
-## Recommended safety practices
+1. **Path Resolution:** Resolves the absolute path of the target directory and safely registers the script's own path to prevent it from accidentally sorting itself.
+2. **Pre-Scan Counting:** Uses `find` to count all regular files recursively, establishing the total progress metric.
+3. **Loop & Extract:** Iterates through every file, isolates the extension, and forces it to lowercase to prevent duplicate folders like `JPG` and `jpg`.
+4. **Flatten & Sort:** Moves files out of their nested paths into clean, top-level extension folders, resolving any naming collisions dynamically.
 
-When working with recovered files, it is a good idea to:
-
-- keep a backup of the original recovered data
-- test on a copy first
-- add a dry-run mode if you plan to extend the script
-- log moved files for easier auditing
-- keep unknown files in a separate folder instead of deleting them
-
-## Project goals
-
-This project aims to be:
-
-- simple
-- practical
-- fast to use on messy directories
-- useful for both recovery work and everyday cleanup
-
-## GitHub Pages
-
-A simple GitHub Pages landing page for this project is included in `/docs/index.md`.
-
-To publish it on GitHub:
-
-1. Open the repository on GitHub.
-2. Go to **Settings** → **Pages**.
-3. Set the source to **Deploy from a branch**.
-4. Choose your branch and the `/docs` folder.
-5. Save the settings.
-
-## Future improvements
-
-- add the actual sorter script to this repository
-- document supported extensions and output folders
-- include example screenshots or terminal output
-- add a dry-run mode
-- add tests once code is checked in
-- support custom category maps
+---
 
 ## Contributing
 
-If you improve the sorter, consider contributing:
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://www.google.com/search?q=https://github.com/your-username/your-repo-name/issues).
 
-- better extension mapping
-- safer move/copy behavior
-- logging
-- duplicate handling
-- platform-specific fixes
+---
 
 ## License
 
-No license file is currently included in this repository. Add one if you want to clearly define how others may use or modify the project.
+This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).

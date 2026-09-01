@@ -2,13 +2,6 @@
 
 A lightweight, Bash script designed to recursively scan a directory, extract files from nested subfolders, and organize them in-place by their file extensions. Perfect for cleaning up messy directories, recovered data drives, or large unorganized archives on Linux.
 
-## Features
-
-* **Recursive Scanning:** Dives deep into all nested subfolders to find and pull out files.
-* **In-Place Organization:** Automatically creates lowercase, extension-based folders (e.g., `mp4`, `pdf`, `txt`) directly in the target directory.
-* **Progress Indicator:** Pre-scans the directory to display a live progress counter (`[ 12/150] Moved...`).
-* **Name Conflict Safe:** Automatically appends a unique timestamp suffix if two files from different subfolders share the exact same name.
-* **Special Character Handling:** Safely processes filenames containing spaces and special characters using null-delimited iteration.
 
 ---
 
@@ -58,6 +51,15 @@ If no directory path is provided, the script defaults to organizing the **curren
 4. **Flatten & Sort:** Moves files out of their nested paths into clean, top-level extension folders, resolving any naming collisions dynamically.
 
 ---
+
+## Features
+
+* **Recursive Scanning:** Dives deep into all nested subfolders to find and pull out files.
+* **In-Place Organization:** Automatically creates lowercase, extension-based folders (e.g., `mp4`, `pdf`, `txt`) directly in the target directory.
+* **Progress Indicator:** Pre-scans the directory to display a live progress counter (`[ 12/150] Moved...`).
+* **Name Conflict Safe:** Automatically appends a unique timestamp suffix if two files from different subfolders share the exact same name.
+* **Special Character Handling:** Safely processes filenames containing spaces and special characters using null-delimited iteration.
+
 
 ## Contributing
 

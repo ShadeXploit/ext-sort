@@ -9,7 +9,7 @@ A lightweight, Bash script designed to recursively scan a directory, extract fil
 
 1. Clone the repository or download the `organize.sh` script:
 ```bash
-git clone https://github.com/your-username/ext-sort.git
+git clone https://github.com/shadexploit/ext-sort.git
 cd ext-sort
 
 ```

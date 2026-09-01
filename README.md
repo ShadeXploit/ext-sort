@@ -69,14 +69,15 @@ After:
 
 ```text
 sorted/
-├── images/
+├── jpg/
 │   └── 0001.jpg
-├── videos/
+├── mp4/
 │   └── 0002.mp4
-├── documents/
-│   ├── 0003.pdf
+├── pdf/
+│   └── 0003.pdf
+├── txt/
 │   └── notes.txt
-├── archives/
+├── zip/
 │   └── 0004.zip
 └── unknown/
     └── 0005
@@ -84,24 +85,24 @@ sorted/
 
 ## How to use it
 
-Because the repository currently documents the project concept rather than a checked-in script file, use the command examples below as a template and replace the script name/options with your actual implementation.
+Because the repository currently documents the project concept rather than a checked-in entrypoint file, use the command examples below as a template and replace the command/options with your actual implementation.
 
 Basic pattern:
 
 ```bash
-python <your-script-name>.py <source-folder> <output-folder>
+<script-command> <source-folder> [output-folder]
 ```
 
 Example:
 
 ```bash
-python ext-sort.py ./recovered ./sorted
+./organize.sh ./recovered ./sorted
 ```
 
 If your script sorts files in place, the usage may look more like:
 
 ```bash
-python ext-sort.py ./recovered
+./organize.sh ./recovered
 ```
 
 ## Recommended safety practices

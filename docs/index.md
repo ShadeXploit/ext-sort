@@ -30,10 +30,10 @@ Recovered data is usually not tidy. Files often come back with random names, mix
 ```text
 recovered/  ->  sorted/
 
-.jpg files  ->  images/
-.mp4 files  ->  videos/
-.pdf files  ->  documents/
-.zip files  ->  archives/
+.jpg files  ->  jpg/
+.mp4 files  ->  mp4/
+.pdf files  ->  pdf/
+.zip files  ->  zip/
 no extension -> unknown/
 ```
 
